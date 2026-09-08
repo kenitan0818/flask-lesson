@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 from flask_login import LoginManager
 from models import db, User
@@ -5,7 +6,7 @@ from blueprints.memo_routes import memo_bp
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-app.config["SECRET_KEY"] = "learning-secret-key-change-later"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-only-fallback-key")
 db.init_app(app)
 app.register_blueprint(memo_bp)
 
