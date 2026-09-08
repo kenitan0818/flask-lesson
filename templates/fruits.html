@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>フルーツ一覧</title>
+</head>
+<body>
+    <h1>フルーツ一覧</h1>
+
+    {% if count > 0 %}
+        <p>{{ count }}種類のフルーツがあります。</p>
+        <ul>
+            {% for fruit in fruits %}
+                <li>{{ fruit }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>フルーツがありません。</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>名前入力フォーム</title>
+</head>
+<body>
+    <h1>お名前を入力してください</h1>
+    <form method="POST" action="/name_form">
+        <input type="text" name="username" placeholder="お名前">
+        <button type="submit">送信</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% elif submitted_name %}
+        <p>こんにちは、{{ submitted_name }}さん!</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>メモ帳</title>
+</head>
+<body>
+    <h1>メモ帳</h1>
+    <form method="POST" action="/memo">
+        <input type="text" name="content" placeholder="メモを入力">
+        <button type="submit">追加</button>
+    </form>
+
+    <ul>
+        {% for memo in memos %}
+            <li>
+            {{ memo.content }}
+            <a href="{{ url_for('memo.edit_memo', memo_id=memo.id) }}">編集</a>
+            <form method="POST" action="{{ url_for('memo.delete_memo', memo_id=memo.id) }}" style="display:inline;">
+                <button type="submit">削除</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

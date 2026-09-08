@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>メモを編集</title>
+</head>
+<body>
+    <h1>メモを編集</h1>
+    <form method="POST" action="{{ url_for('edit_memo', memo_id=memo.id) }}">
+        <input type="text" name="content" value="{{ memo.content }}">
+        <button type="submit">更新</button>
+    </form>
+    <p><a href="{{ url_for('memo') }}">一覧に戻る</a></p>
+</body>
+</html>
